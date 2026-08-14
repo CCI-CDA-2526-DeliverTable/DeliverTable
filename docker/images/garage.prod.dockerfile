@@ -7,10 +7,10 @@ COPY docker/images/tools/ ./
 RUN CGO_ENABLED=0 go build -trimpath -ldflags='-s -w' -o /out/healthcheck ./healthcheck
 
 # ── Stage 2: Extract Garage binary ─────────────────────────────
-FROM dxflrs/garage:v2.2.0 AS garage
+FROM dxflrs/garage:v2.3.0 AS garage
 
 # ── Stage 3: Assemble minimal image ───────────────────────────
-FROM alpine:3.21
+FROM alpine:3.24
 
 RUN apk add --no-cache ca-certificates && \
     addgroup -g 1655 garage && \
