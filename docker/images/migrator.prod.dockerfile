@@ -33,7 +33,7 @@ RUN dotnet publish DeliverTableMigrator/DeliverTableMigrator.csproj \
 # ── Stage 3: Assemble the minimal rootfs ─────────────────────
 # Alpine provides the same musl-based shared libraries the self-contained
 # .NET publish links against (libstdc++, libssl, zlib, etc.).
-FROM alpine:3.21 AS rootfs
+FROM alpine:3.24 AS rootfs
 
 RUN apk add --no-cache \
     ca-certificates \
